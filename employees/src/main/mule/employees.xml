@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="5e50f8aa-1f83-4a66-ab67-ae955baf36a1" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="employeesFlow" doc:id="122218fb-e89d-4159-b324-9c81c851979b" >
+		<http:listener doc:name="Listener" doc:id="4c05149a-61a6-4934-8def-9769a51c9234" config-ref="HTTP_Listener_config" path="/employees"/>
+		<set-payload value="employee details" doc:name="Set Payload" doc:id="677a20ec-4d30-4f1a-9a89-3ed06b195f4b" />
+	</flow>
+</mule>
